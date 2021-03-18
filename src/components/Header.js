@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import Button from './Button'
+import { FaPlus, FaTimes } from 'react-icons/fa'
 
 const Header = (props) => {
     const onClick = () =>{
@@ -8,7 +9,8 @@ const Header = (props) => {
     return (
         <header>
            <h1>{props.title}</h1> 
-           <Button title="Add" color="green"  onClick = { onClick } />
+           <Button title={props.showAddTask ? 'Close'  : 'Add Task' } color={props.showAddTask ? 'red' : 'green'}  onClick = { props.onAdd } icon ={props.showAddTask ?  <FaTimes style={{ color: 'white' }}/> : <FaPlus style={{ color: 'white'}} />
+           } />
         </header>
     )
 }
@@ -18,7 +20,8 @@ Header.defaultProps = {
 }
 
 Header.propTypes = {
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    onClick: PropTypes.func
 }
 
 // //CSS in JS

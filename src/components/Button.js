@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { FaPlus, FaTimes } from 'react-icons/fa'
 
 const Button = (props) => {
 
@@ -8,7 +9,7 @@ const Button = (props) => {
         style={{ backgroundColor: props.color}}
         onClick = { props.onClick }
         className='btn'>
-        {props.title}</button>
+        {props.title} {props.icon}</button>
     )
 }
 
@@ -17,7 +18,7 @@ Button.defaultProps = {
 }
 
 Button.propTypes = {
-    text: PropTypes.string,
+    title: PropTypes.string,
     color: PropTypes.string,
     onClick: PropTypes.func,
 
